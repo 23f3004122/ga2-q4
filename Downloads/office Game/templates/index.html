@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Quiz Game</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white flex items-center justify-center h-screen">
+
+    <div class="w-full max-w-md p-8 space-y-8 bg-slate-800 rounded-2xl shadow-lg text-center">
+        <div>
+            <h1 class="text-4xl font-bold tracking-tight text-indigo-400">Office Quizdown</h1>
+            <p class="mt-2 text-slate-400">The ultimate office trivia challenge!</p>
+        </div>
+
+        <!-- Section to Create a New Game -->
+        <div class="pt-6">
+            <h2 class="text-2xl font-semibold">Start a New Game</h2>
+            <p class="text-slate-500 mt-1">Be the host and invite your colleagues.</p>
+           <a href="/lobby"
+   id="create-game-btn"
+   class="block text-center w-full mt-4 py-3 px-4 bg-indigo-600 hover:bg-indigo-700 rounded-lg text-white font-semibold transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+    Create Game
+</a>
+        </div>
+
+        <div class="relative">
+            <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-slate-600"></div>
+            </div>
+            <div class="relative flex justify-center text-sm">
+                <span class="px-2 bg-slate-800 text-slate-500">OR</span>
+            </div>
+        </div>
+
+        <!-- Section to Join an Existing Game -->
+        <div>
+            <h2 class="text-2xl font-semibold">Join an Existing Game</h2>
+            <p class="text-slate-500 mt-1">Enter the game code from your host.</p>
+            <div class="mt-4 flex flex-col sm:flex-row gap-3">
+                <input 
+                    type="text" 
+                    id="game-code-input"
+                    placeholder="Enter Game Code" 
+                    maxlength="5"
+                    class="flex-grow w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-center uppercase tracking-widest font-semibold">
+                <button 
+                    id="join-game-btn"
+                    class="w-full sm:w-auto py-3 px-6 bg-emerald-600 hover:bg-emerald-700 rounded-lg text-white font-semibold transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500">
+                    Join
+                </button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+1: How many players in a soccer team?
+
+2: What is the length of a marathon (in km)?
+
+3: In cricket, how many runs is a “six”?
+
+4: Which sport is associated with Wimbledon?
+
+5: What color card means a player is sent off in soccer?
+
+6: What sport is Michael Jordan famous for?

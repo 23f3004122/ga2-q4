@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Quiz Results</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-white flex justify-center py-10">
+
+<div class="w-full max-w-3xl p-8 bg-slate-800 rounded-2xl shadow-lg space-y-6">
+
+    <h1 class="text-3xl font-bold text-indigo-400 text-center">Your Results</h1>
+    <p class="text-center text-lg text-slate-300">
+        You scored <span class="font-bold text-emerald-400">{{ score }}</span> / {{ total }}
+    </p>
+
+    {% for r in results %}
+    <div class="p-4 rounded-lg {% if r.is_correct %}bg-emerald-700{% else %}bg-red-700{% endif %}">
+        <p class="font-semibold text-lg">{{ loop.index }}. {{ r.question_text }}</p>
+
+        <div class="mt-2 space-y-1">
+            {% for key, value in r.options.items() %}
+                <p class="
+                    px-2 py-1 rounded 
+                    {% if key == r.correct_option %}bg-emerald-500 text-white font-bold{% endif %}
+                    {% if key == r.selected_option and not r.is_correct %}bg-red-500 text-white{% endif %}
+                ">
+                    {{ key }}. {{ value }}
+                </p>
+            {% endfor %}
+        </div>
+
+        {% if r.is_correct %}
+            <p class="mt-2 text-emerald-300">✅ Correct</p>
+        {% else %}
+            <p class="mt-2 text-red-300">❌ Incorrect (Correct answer: {{ r.correct_option }})</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+    <div class="pt-6 text-center">
+        <a href="{{ url_for('fun_lobby') }}" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg font-semibold">
+            Back to Fun Lobby
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

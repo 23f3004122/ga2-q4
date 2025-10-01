@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Quiz Lobby</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-green-900 via-slate-900 to-black text-white flex items-center justify-center min-h-screen">
+
+<div class="w-full max-w-3xl p-8 bg-slate-800 rounded-2xl shadow-xl space-y-6 border border-green-600">
+
+    <!-- Header -->
+    <div class="flex justify-between items-center">
+        <h2 class="text-2xl font-bold text-green-400 tracking-wide">🏆 Sports Quiz Lobby</h2>
+        <a href="/logout" class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg font-semibold transition-transform transform hover:scale-105">
+            Logout
+        </a>
+    </div>
+
+    <!-- Game Code Section -->
+    <div class="bg-slate-700 p-5 rounded-lg shadow-md">
+        <h3 class="text-lg font-semibold text-orange-400">Game Code</h3>
+        <p class="text-white text-3xl font-extrabold mt-2 tracking-widest">{{ game_code }}</p>
+        <p class="text-slate-400 mt-1 text-sm">Share this code with your teammates or rivals to join the quiz!</p>
+    </div>
+
+    <!-- Joined Players -->
+    <div class="bg-slate-700 p-5 rounded-lg shadow-md">
+        <h3 class="text-lg font-semibold text-green-300">Players in the Lobby</h3>
+        <ul class="mt-3 list-disc list-inside space-y-1">
+            {% for player in players %}
+                <li class="font-medium">{{ player.user.username }}</li>
+            {% else %}
+                <li class="text-slate-400 italic">No players joined yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Start Quiz Button -->
+    <div class="pt-4">
+        <a href="/sports/start" class="w-full block text-center py-3 px-4 bg-green-600 hover:bg-green-700 rounded-lg text-white font-bold uppercase tracking-wide transition-transform transform hover:scale-105 shadow-md">
+            Start Sports Quiz
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

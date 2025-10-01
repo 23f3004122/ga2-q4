@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize Your Quiz - Office Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .category-checkbox:checked + label {
+            background-color: #4f46e5; 
+            border-color: #6366f1;   
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white flex items-center justify-center h-screen">
+
+    <!-- Score fixed top-right -->
+    <div id="score-box" class="absolute top-4 right-6 flex items-center gap-2 bg-slate-700 px-4 py-2 rounded-lg shadow-md">
+        <span class="text-lg font-semibold text-emerald-400">Score:</span>
+        <span id="score-value" class="text-xl font-bold text-white">1000</span>
+    </div>
+
+    <div class="w-full max-w-2xl p-8 space-y-6 bg-slate-800 rounded-2xl shadow-lg relative">
+
+        <!-- Header with username and logout -->
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-semibold text-indigo-400">Hello, {{ username }}!</h2>
+            <a href="/logout" class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg text-white font-semibold transition-transform transform hover:scale-105">
+                Logout
+            </a>
+        </div>
+
+        <div class="text-center">
+            <h1 class="text-3xl font-bold text-indigo-400">Choose Your Quiz Type</h1>
+            <p class="mt-2 text-slate-400">Select one or more categories for your game.</p>
+        </div>
+
+        <!-- Categories Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 pt-4">
+
+            <!-- Fun Category -->
+            <a href="/quiz/Fun" class="block text-center p-4 rounded-lg border border-slate-600 bg-slate-700 hover:bg-slate-600 cursor-pointer transition-colors duration-200">
+                <span class="text-2xl">🎉</span>
+                <span class="mt-2 block font-semibold">Fun</span>
+            </a>
+
+            <!-- Sports Category -->
+            <a href="/quiz/Sports" class="block text-center p-4 rounded-lg border border-slate-600 bg-slate-700 hover:bg-slate-600 cursor-pointer transition-colors duration-200">
+                <span class="text-2xl">⚽️</span>
+                <span class="mt-2 block font-semibold">Sports</span>
+            </a>
+
+            <!-- G.K. Category -->
+            <a href="/quiz/G.K." class="block text-center p-4 rounded-lg border border-slate-600 bg-slate-700 hover:bg-slate-600 cursor-pointer transition-colors duration-200">
+                <span class="text-2xl">🌍</span>
+                <span class="mt-2 block font-semibold">G.K.</span>
+            </a>
+
+            <!-- Tech Category -->
+            <a href="/quiz/Tech" class="block text-center p-4 rounded-lg border border-slate-600 bg-slate-700 hover:bg-slate-600 cursor-pointer transition-colors duration-200">
+                <span class="text-2xl">💻</span>
+                <span class="mt-2 block font-semibold">Tech</span>
+            </a>
+
+            <!-- Movies Category -->
+            <a href="/quiz/Movies" class="block text-center p-4 rounded-lg border border-slate-600 bg-slate-700 hover:bg-slate-600 cursor-pointer transition-colors duration-200">
+                <span class="text-2xl">🎬</span>
+                <span class="mt-2 block font-semibold">Movies</span>
+            </a>
+
+            <!-- Music Category -->
+            <a href="/quiz/Music" class="block text-center p-4 rounded-lg border border-slate-600 bg-slate-700 hover:bg-slate-600 cursor-pointer transition-colors duration-200">
+                <span class="text-2xl">🎵</span>
+                <span class="mt-2 block font-semibold">Music</span>
+            </a>
+
+        </div>
+
+        <!-- Submit Button -->
+        <div class="pt-8">
+            <button 
+                type="submit"
+                class="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-700 rounded-lg text-white font-semibold transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500">
+                Create Game Lobby
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        // Example: dynamically update score
+        let score = 1000;
+        function updateScore(change) {
+            score += change;
+            document.getElementById("score-value").textContent = score;
+        }
+    </script>
+
+</body>
+</html>
